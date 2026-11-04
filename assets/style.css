@@ -222,14 +222,28 @@ img{max-width:100%;display:block}
 }
 
 /* ===== 歷史資料鑒賞（本會歷史頁底部圖輯）===== */
-/* 文件類圖片一律全幅原比例呈現，絕不裁切 */
+/* 統一框格：每格圖框等高，圖片以 contain 完整置中呈現——全幅零裁切，文件文字無損；框格餘白以米色底襯齊，格線對齊 */
 .archive-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:20px}
-.archive-fig{background:var(--bg);border:1px solid var(--line);border-radius:5px;padding:10px}
-.archive-fig img{width:100%;height:auto;border:1px solid var(--line);border-radius:3px}
+.archive-fig{background:var(--bg);border:1px solid var(--line);border-radius:5px;padding:10px;display:flex;flex-direction:column}
+.archive-fig img{width:100%;height:250px;object-fit:contain;background:var(--paper2);border:1px solid var(--line);border-radius:3px}
 .archive-fig figcaption{font-size:13.5px;color:var(--muted);margin-top:8px;line-height:1.6}
 @media (min-width:641px) and (max-width:1023px){
   .archive-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media (max-width:640px){
   .archive-grid{grid-template-columns:1fr}
+  .archive-fig img{height:300px}
+}
+
+/* ===== 會所風貌圖輯（認識本會頁，規格同上：統一框格、contain 不裁）===== */
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.gallery-fig{background:var(--bg);border:1px solid var(--line);border-radius:5px;padding:10px;display:flex;flex-direction:column}
+.gallery-fig img{width:100%;height:210px;object-fit:contain;background:var(--paper2);border:1px solid var(--line);border-radius:3px}
+.gallery-fig figcaption{font-size:13.5px;color:var(--muted);margin-top:8px;line-height:1.6}
+@media (min-width:641px) and (max-width:1023px){
+  .gallery-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:640px){
+  .gallery-grid{grid-template-columns:1fr}
+  .gallery-fig img{height:230px}
 }
