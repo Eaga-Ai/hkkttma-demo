@@ -8,7 +8,9 @@
 - `about.html` — 認識本會（宗旨與使命、現屆理監事、聯絡）
 - `history.html` — 本會歷史（1946 籌組、1948 正式成立，雙錨點並列）
 - `members.html` — 會員名錄（118 間，可搜尋，資料在 `assets/members-data.js`）
-- `news.html` — 茶業資訊
+- `news.html` — 商會動態
+- `industry.html` — 行業資訊
+- `policy.html` — 政策解讀
 - `member-lingnan.html` — 會員展示：嶺南茶業公司
 - `member-teaart.html` — 會員展示：茶藝軒
 - `member-lamkieyuen.html` — 會員展示：林奇苑茶行有限公司

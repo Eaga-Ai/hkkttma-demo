@@ -1,4 +1,8 @@
 /* 港九茶葉行商會 概念示範網站 — 復古米色 + 深綠，手機優先 */
+/* 站名展示字體：Noto Serif TC 900 自托管子集（assets/fonts，OFL 授權）。
+   兩款候選書法字體（馬善政毛筆體／志莽行書）經 cmap 逐字實測，同缺「葉、會、與、業、攜、邁、載」繁體字形，
+   按定案退回 Noto Serif TC 加粗（900）——只用於頁眉站名、首頁大標題與首頁導引塊標題，正文導航不變。 */
+@font-face{font-family:"NotoSerifTC-Display";src:url("fonts/notoseriftc-display.woff2") format("woff2");font-weight:900;font-display:swap}
 :root{
   --bg:#f6f0e1; --paper:#fffdf4; --paper2:#efe6cf;
   --green:#1e4d2b; --green-d:#12331b; --green-l:#2e6b3e;
@@ -21,7 +25,7 @@ img{max-width:100%;display:block}
 .site-head{background:var(--paper);border-bottom:3px double var(--gold)}
 .head-in{display:flex;align-items:center;gap:16px;padding:18px 18px 14px}
 .logo{width:74px;height:auto;flex:none}
-.head-titles h1{font-family:var(--serif);font-size:30px;color:var(--green-d);letter-spacing:.06em;line-height:1.25}
+.head-titles h1{font-family:"NotoSerifTC-Display","Noto Serif TC","Songti TC","PMingLiU",serif;font-weight:900;font-size:30px;color:var(--green-d);letter-spacing:.06em;line-height:1.25}
 .head-titles .en{font-size:12px;color:var(--muted);letter-spacing:.04em}
 .head-titles .est{font-size:12px;color:var(--gold);letter-spacing:.28em;font-weight:700}
 .main-nav{background:var(--green)}
@@ -32,11 +36,11 @@ img{max-width:100%;display:block}
 .nav-show{margin-left:auto;font-size:13px;color:#cdbf9a}
 .nav-show a{padding:6px 6px;font-size:13.5px}
 
-/* 主視覺：標題文字在上方區塊，主形象照片在下方以原比例完整顯示，絕不裁切 */
+/* 主視覺：標題文字在上方區塊；大廳圖採用用戶親手裁定的橫幅版，以其原比例（約 2.84:1）全幅呈現，不再裁切 */
 .hero{background:var(--green-d);color:#f6efdb}
 .hero-txt{padding:36px 0 28px}
 .hero img.hero-photo{width:100%;height:auto}
-.hero h2{font-family:var(--serif);font-size:34px;line-height:1.4;letter-spacing:.05em;max-width:640px}
+.hero h2{font-family:"NotoSerifTC-Display","Noto Serif TC","Songti TC","PMingLiU",serif;font-weight:900;font-size:34px;line-height:1.4;letter-spacing:.05em;max-width:640px}
 .hero p{margin-top:10px;max-width:600px;font-size:16.5px}
 .hero .btns{margin-top:18px;display:flex;gap:10px;flex-wrap:wrap}
 .btn{display:inline-block;background:var(--gold);color:#fff;padding:10px 22px;border-radius:3px;font-weight:700;letter-spacing:.05em}
@@ -63,6 +67,9 @@ img{max-width:100%;display:block}
 .photo-fig{margin-top:20px}
 .photo-fig img{width:100%;height:auto;border:1px solid var(--line);border-radius:4px}
 .photo-fig figcaption{font-size:13.5px;color:var(--muted);margin-top:8px}
+/* 圖片呈現新規則：主體完整優先，只許適度裁上下天地，左右不裁 */
+.photo-fig.crop-pano img{aspect-ratio:2.2/1;object-fit:cover;object-position:50% 45%}
+.photo-fig.crop-cake img{aspect-ratio:8/5;object-fit:cover;object-position:50% 72%}
 .photo-fig.narrow{max-width:560px}
 .timeline .photo-fig{margin-top:12px}
 
@@ -105,7 +112,7 @@ img{max-width:100%;display:block}
 
 /* 展示頁 */
 .show-hero{background:var(--green-d);color:#f6efdb;padding:44px 0 38px;text-align:center}
-.show-hero img.hero-img{width:100%;height:auto}
+.show-hero img.hero-img{width:100%;height:auto;aspect-ratio:2.3/1;object-fit:cover;object-position:50% 40%}
 .show-hero .brand{font-family:var(--serif);font-size:36px;letter-spacing:.08em;line-height:1.3}
 .show-hero .brand-en{letter-spacing:.3em;font-size:13px;color:#cdbf9a;margin-top:6px}
 .show-hero .brand-tag{margin-top:12px;font-size:16.5px;color:#efe6cb}
@@ -174,4 +181,42 @@ img{max-width:100%;display:block}
   .hero h2{font-size:38px}
   .member-list{grid-template-columns:repeat(3,1fr)}
   .prod-grid{grid-template-columns:repeat(4,1fr)}
+}
+
+/* ===== v3 三大板塊 ===== */
+/* 首頁入口區：左「邁向八十周年」導引塊 + 右三欄（商會動態／行業資訊／政策解讀），照效果圖中段版式 */
+.hub{display:grid;grid-template-columns:320px 1fr;gap:18px;align-items:start}
+.hub-feature{display:block;background:var(--green-d);color:#f6efdb;border-radius:6px;overflow:hidden}
+.hub-feature:hover{text-decoration:none}
+.hub-feature img{width:100%;height:auto}
+.hub-feature-txt{display:block;padding:16px 18px 18px}
+.hub-kicker{display:block;font-family:"NotoSerifTC-Display","Noto Serif TC","Songti TC",serif;font-weight:900;font-size:22px;letter-spacing:.06em}
+.hub-years{display:block;font-family:var(--serif);font-size:27px;color:var(--gold);letter-spacing:.1em;margin:2px 0 8px}
+.hub-feature-p{display:block;font-size:14.5px}
+.hub-feature .more{display:inline-block;margin-top:10px;font-weight:700;color:#efe3bc}
+.hub-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.hub-col{background:var(--paper);border:1px solid var(--line);border-top:4px solid var(--green);border-radius:5px;padding:16px 18px}
+.hub-col h4{font-family:var(--serif);font-size:20px;color:var(--green-d)}
+.hub-sub{font-size:13px;color:var(--gold);letter-spacing:.08em;margin-bottom:6px}
+.hub-list{list-style:none}
+.hub-list li{padding:8px 0;border-bottom:1px dashed var(--line)}
+.hub-list a{color:var(--ink);display:block;font-size:15px;line-height:1.55}
+.hub-list a:hover{color:var(--green-l);text-decoration:none}
+.hub-list .d{display:block;font-size:12.5px;color:var(--gold);font-weight:700;letter-spacing:.04em}
+.hub-col .more{display:inline-block;margin-top:10px;font-weight:700}
+.hub-note{font-size:12.5px;color:var(--muted);margin-top:8px}
+
+/* 資訊條目內的要點清單（政策解讀頁用） */
+.news-item ul{margin:8px 0 4px 20px}
+.news-item li{margin-bottom:5px}
+
+/* 示範資料標籤：凡樣例條目必須逐條標示，與真實條目一眼可辨 */
+.demo-tag{display:inline-block;background:#b03a2e;color:#fff;font-size:12px;font-weight:700;padding:1px 8px;border-radius:3px;letter-spacing:.06em;vertical-align:2px;margin-left:8px;white-space:nowrap}
+
+@media (max-width:1023px){
+  .hub{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .hub-cols{grid-template-columns:1fr}
+  .hub-years{font-size:24px}
 }
