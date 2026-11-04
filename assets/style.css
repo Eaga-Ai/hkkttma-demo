@@ -221,7 +221,7 @@ img{max-width:100%;display:block}
   .hub-years{font-size:24px}
 }
 
-/* ===== 歷史檔案展示（本會歷史頁底部圖輯）===== */
+/* ===== 歷史資料鑒賞（本會歷史頁底部圖輯）===== */
 /* 文件類圖片一律全幅原比例呈現，絕不裁切 */
 .archive-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:20px}
 .archive-fig{background:var(--bg);border:1px solid var(--line);border-radius:5px;padding:10px}
