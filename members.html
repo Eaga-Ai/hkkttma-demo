@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>會員名錄 — 港九茶葉行商會（概念示範）</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="demo-strip">概念示範 Concept Demo · 本網站為概念示範，未經商會正式授權</div>
+<header class="site-head">
+  <div class="wrap head-in">
+    <img class="logo" src="assets/logo.png" alt="港九茶葉行商會會徽">
+    <div class="head-titles">
+      <h1>港九茶葉行商會</h1>
+      <p class="en">Hong Kong &amp; Kowloon Tea Trade Merchants Association</p>
+      <p class="est">EST. 1948</p>
+    </div>
+  </div>
+  <nav class="main-nav"><div class="wrap nav-in">
+    <a href="index.html">首頁</a>
+    <a href="about.html">認識本會</a>
+    <a href="history.html">本會歷史</a>
+    <a href="members.html" class="on">會員名錄</a>
+    <a href="news.html">茶業資訊</a>
+    <span class="nav-show">會員展示：<a href="member-lingnan.html">嶺南茶業</a><a href="member-teaart.html">茶藝軒</a><a href="member-lamkieyuen.html">林奇苑茶行</a></span>
+  </div></nav>
+</header>
+
+<section class="page-title"><div class="wrap">
+  <h2>會員名錄</h2>
+  <p>全名錄 118 間 · 可搜尋 · 電話可點擊撥打</p>
+</div></section>
+
+<section class="section" id="showcase" style="padding-bottom:6px">
+  <div class="wrap">
+    <div class="sec-head"><h3>會員展示（示範）</h3></div>
+    <p class="muted" style="margin:-6px 0 16px">本會會員以批發為主，亦有門市零售；批發、零售、進出口，三種業態俱有樣板。</p>
+    <div class="cards">
+      <div class="card">
+        <span class="tag">進出口 · 批發</span>
+        <h4>嶺南茶業公司</h4>
+        <p>茶葉出口、進口、批發及零售；市場涵蓋香港及北美。負責人林鎮浩先生為本會副理事長。</p>
+        <a class="more" href="member-lingnan.html">查看展示頁 →</a>
+      </div>
+      <div class="card">
+        <span class="tag">零售 · 批發</span>
+        <h4>茶藝軒</h4>
+        <p>1986 年創立，以普洱茶及名貴紫砂壺為經營特色，設觀塘、灣仔、佐敦三間門店。</p>
+        <a class="more" href="member-teaart.html">查看展示頁 →</a>
+      </div>
+      <div class="card">
+        <span class="tag">批發 · 門市</span>
+        <h4>林奇苑茶行</h4>
+        <p>創於 1955 年，茶葉批發及零售，上環文咸東街設有門市；掌舵人林偉德先生為本會理事長。</p>
+        <a class="more" href="member-lamkieyuen.html">查看展示頁 →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="sec-head"><h3>全體會員</h3></div>
+    <div class="search-box">
+      <input id="q" type="search" placeholder="輸入商號名稱或地區搜尋，例如：英記、上環、觀塘…" aria-label="搜尋會員">
+    </div>
+    <p class="count-note" id="count"></p>
+    <div class="member-list" id="list"></div>
+    <p class="small muted" style="margin-top:18px">資料來源：商會官網「會員名單」頁公開資料（2026 年 10 月整理）。官網名單本身有個別出入之處，名錄如實轉錄；如資料有更新，請以商會及商號最新公布為準。「門市」標記為設有門市之商號。</p>
+  </div>
+</section>
+
+<footer class="site-foot">
+  <div class="wrap foot-in">
+    <div class="foot-grid">
+      <div>
+        <strong>港九茶葉行商會</strong><br>
+        會址：香港德輔道西 196 號 3 樓 A 座<br>
+        電話：<a href="tel:+85225473306">(852) 2547 3306</a><br>
+        官網：<a href="https://www.hkkttma.org" target="_blank" rel="noopener">www.hkkttma.org</a>
+      </div>
+      <nav class="foot-nav">
+        <a href="about.html">認識本會</a>
+        <a href="history.html">本會歷史</a>
+        <a href="members.html">會員名錄</a>
+        <a href="news.html">茶業資訊</a>
+      </nav>
+    </div>
+    <p class="disclaimer">本網站為概念示範，內容取材自商會官網及公開報道等公開資料，未經港九茶葉行商會正式授權及審定發布。</p>
+    <p class="copy">© 港九茶葉行商會有限公司</p>
+  </div>
+</footer>
+
+<script src="assets/members-data.js"></script>
+<script>
+(function(){
+  var list=document.getElementById('list'), q=document.getElementById('q'), count=document.getElementById('count');
+  function esc(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+  function render(items){
+    count.textContent='共 '+items.length+' 間商號';
+    list.innerHTML=items.map(function(m){
+      var tel=m.tel.replace(/\s/g,'');
+      var h='<article class="member"><h4>'+esc(m.name)+(m.shop?'<span class="badge">門市</span>':'')+'</h4>';
+      h+='<p class="tel"><a href="tel:+852'+tel+'">'+esc(m.tel)+'</a></p>';
+      if(m.addr)h+='<p class="addr">'+esc(m.addr)+'</p>';
+      if(m.web)h+='<p class="web"><a href="'+esc(m.web)+'" target="_blank" rel="noopener">商號網站 ↗</a></p>';
+      if(m.note)h+='<p class="note">'+esc(m.note)+'</p>';
+      return h+'</article>';
+    }).join('') || '<p class="muted">沒有符合的商號，請換個關鍵字試試。</p>';
+  }
+  render(window.MEMBERS);
+  q.addEventListener('input',function(){
+    var v=q.value.trim();
+    if(!v){render(window.MEMBERS);return;}
+    render(window.MEMBERS.filter(function(m){
+      return (m.name+' '+m.addr+' '+m.tel).indexOf(v)>-1;
+    }));
+  });
+})();
+</script>
+</body>
+</html>
