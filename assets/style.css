@@ -63,6 +63,11 @@ img{max-width:100%;display:block}
 .muted{color:var(--muted)}
 .small{font-size:13.5px}
 
+/* 頁頂牌匾橫幅：全寬、原比例完整顯示，絕不裁切 */
+.plaque-banner{margin:0;background:var(--paper2)}
+.plaque-banner img{width:100%;height:auto;display:block}
+.plaque-banner figcaption{font-size:13.5px;color:var(--muted);text-align:center;padding:8px 16px 10px}
+
 /* 全幅照片：原比例完整顯示，絕不裁切 */
 .photo-fig{margin-top:20px}
 .photo-fig img{width:100%;height:auto;border:1px solid var(--line);border-radius:4px}
