@@ -271,3 +271,15 @@ img{max-width:100%;display:block}
   .gallery-grid{grid-template-columns:1fr}
   .gallery-fig img{height:230px}
 }
+
+/* ===== 商會動態條目照片（規格同圖輯：統一框格、contain 不裁、米色襯底）===== */
+.news-photos{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:14px}
+.news-photos.single{grid-template-columns:minmax(0,560px)}
+.news-photo{background:var(--bg);border:1px solid var(--line);border-radius:5px;padding:8px;display:flex;flex-direction:column;margin:0}
+.news-photo img{width:100%;height:230px;object-fit:contain;background:var(--paper2);border:1px solid var(--line);border-radius:3px}
+.news-photo figcaption{font-size:13px;color:var(--muted);margin-top:7px;line-height:1.6}
+@media (max-width:640px){
+  .news-photos{grid-template-columns:1fr}
+  .news-photos.single{grid-template-columns:1fr}
+  .news-photo img{height:250px}
+}
